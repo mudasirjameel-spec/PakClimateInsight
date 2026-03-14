@@ -146,9 +146,22 @@
           </div>
         </div>
       </div>
+      
       <div class="moon-img-wrap glass reveal" data-delay="150">
-        <img src="moon.png.jpg" alt="Shawwal Moon Visibility Map" class="moon-img" loading="lazy">
+        <img id="the-moon-pic" src="moon.png" alt="Shawwal Moon Visibility Map" class="moon-img" loading="lazy">
+        <script>
+          const moonImg = document.getElementById('the-moon-pic');
+          const possibleNames = ['moon.png.png', 'moon.png.jpg', 'moon.jpg', 'moon.jpeg'];
+          let attempt = 0;
+          moonImg.onerror = function() {
+            if (attempt < possibleNames.length) {
+              moonImg.src = possibleNames[attempt];
+              attempt++;
+            }
+          };
+        </script>
       </div>
+
     </div>
   </div>
 </section>
