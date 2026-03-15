@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Interactive Tools — Mudasir Jameel</title>
+  <title>Meteorological Calculators — Mudasir Jameel</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -22,9 +22,19 @@
     <ul class="nav-menu" id="nav-menu">
       <li><a href="index.html#hero">Home</a></li>
       <li><a href="index.html#live">Live Weather</a></li>
+      <li><a href="index.html#live-map">Radar</a></li>
+      <li><a href="index.html#moon">Moon</a></li>
+      <li><a href="index.html#rainfall-update">Rainfall Alert</a></li>
       <li><a href="index.html#outlook">Outlook 2026</a></li>
-      <li><a href="tools.html" class="active">Interactive Tools</a></li>
-      <li><a href="resources.html">Resources</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn active">Resources ▾</a>
+        <div class="dropdown-content">
+          <a href="tools.html" class="active">Calculators ⚡</a>
+          <a href="indicators.html">Live Indicators 🌍</a>
+          <a href="resources.html">Data Sources</a>
+        </div>
+      </li>
+      <li><a href="index.html#about">About</a></li>
     </ul>
     <div class="nav-controls">
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -36,70 +46,46 @@
   </div>
 </nav>
 
-<section class="hero" id="hero" style="min-height: 40vh; padding-bottom: 2rem;">
-  <div class="hero-glow g1"></div>
-  <div class="hero-glow g3"></div>
-
-  <div class="hero-body">
-    <h1 class="hero-title reveal">
-      Interactive <span class="hero-name">Tools</span>
-    </h1>
-    <p class="hero-desc reveal" style="max-width: 600px; margin: 0 auto;">
-      Specialized meteorological calculators and live tracking for steering currents and thermal comfort metrics.
-    </p>
-  </div>
-</section>
-
-<section class="section" id="dynamics" style="padding-top: 2rem;">
+<section class="section" style="padding-top: 140px; min-height: 80vh;">
   <div class="container">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Atmospheric Utilities</span>
-      <h2 class="sec-title">Thermal Comfort & <span class="accent">Live Dynamics</span></h2>
+    <div class="sec-head">
+      <span class="eyebrow">Analyst Tools</span>
+      <h2 class="sec-title">Meteorological <span class="accent">Calculators</span></h2>
     </div>
 
-    <div class="outlook-grid">
-      <div class="glass reveal" style="padding: 2.5rem; border-radius: var(--radius);">
-        <h3 style="font-family: var(--serif); margin-bottom: 0.5rem; font-size: 1.4rem;">Atmospheric Heat Stress Analyzer</h3>
-        <p style="font-size: 0.9rem; color: var(--text3); margin-bottom: 2rem; line-height: 1.6;">
-          Calculates the true physiological "Feels Like" temperature using the official NOAA regression algorithm. Critical for monitoring dangerous pre-monsoon heatwaves across Sindh and the Punjab plains.
-        </p>
-        
-        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-          <div>
-            <label class="mono" style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase;">Air Temperature (°C)</label>
-            <input type="number" id="hi-temp" value="" placeholder="e.g. 38" style="width: 100%; padding: 1rem; margin-top: 0.5rem; background: var(--bg3); border: 1px solid var(--border); color: var(--text1); font-family: var(--mono); font-size: 1.1rem; border-radius: var(--radius-sm);">
-          </div>
-          <div>
-            <label class="mono" style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase;">Relative Humidity (%)</label>
-            <input type="number" id="hi-hum" value="" placeholder="e.g. 55" style="width: 100%; padding: 1rem; margin-top: 0.5rem; background: var(--bg3); border: 1px solid var(--border); color: var(--text1); font-family: var(--mono); font-size: 1.1rem; border-radius: var(--radius-sm);">
-          </div>
-          <button onclick="calculateHI()" class="btn-primary" style="border: none; cursor: pointer; width: 100%; padding: 1rem; font-size: 1rem; margin-top: 0.5rem;">Analyze Thermal Stress</button>
-          
-          <div id="hi-result-box" class="glass" style="margin-top: 1rem; padding: 1.5rem; text-align: center; border-radius: var(--radius-sm); display: none;">
-            <span class="mono" style="font-size: 0.8rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;">Resultant Heat Index</span>
-            <div id="hi-result" style="font-size: 3.5rem; font-weight: 800; font-family: var(--serif); margin: 0.5rem 0; color: var(--text1);">--</div>
-            <span id="hi-risk" class="qb" style="display: inline-block; padding: 0.4rem 1rem; font-size: 0.9rem;">--</span>
-          </div>
+    <div class="calc-grid">
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius);">
+        <h3 style="margin-bottom:1rem; color: var(--text1);">Heat Index</h3>
+        <div class="input-group">
+          <label>Temperature (°C)</label>
+          <input type="number" id="hi-temp" placeholder="e.g. 35">
         </div>
+        <div class="input-group">
+          <label>Relative Humidity (%)</label>
+          <input type="number" id="hi-hum" placeholder="e.g. 60">
+        </div>
+        <button class="btn-primary" onclick="calcFeelsLike()" style="width: 100%; margin-top: 1rem;">Calculate</button>
+        <div id="hi-result" class="calc-result"></div>
       </div>
 
-      <div class="outlook-sidebar">
-        <div class="sb-card glass reveal">
-          <div class="sb-label">Tropospheric Steering</div>
-          <div class="sb-value" id="dyn-steering">Neutral</div>
-          <p class="sb-note">Current position of the 500hPa ridge. Strongly influences the track of Bay of Bengal depressions pushing toward Punjab.</p>
+      <div class="glass" style="padding: 2rem; border-radius: var(--radius);">
+        <h3 style="margin-bottom:1rem; color: var(--text1);">Average Temperature</h3>
+        <div class="input-group">
+          <label>Max Temps (°C) - comma separated</label>
+          <input type="text" id="avg-max" placeholder="32, 34, 33">
         </div>
-        <div class="sb-card glass reveal">
-          <div class="sb-label">Coastal Moisture Advection</div>
-          <div id="moisture-bar" class="conf-track" style="margin-top: 0.5rem; height: 8px;"><div class="conf-fill" style="width:40%; transition: width 1s ease-in-out;"></div></div>
-          <p class="sb-note" style="margin-top: 1rem;">Arabian Sea moisture flux intensity. High values indicate a strong potential for heavy coastal convective rain events.</p>
+        <div class="input-group">
+          <label>Min Temps (°C) - comma separated</label>
+          <input type="text" id="avg-min" placeholder="24, 25, 24">
         </div>
+        <button class="btn-primary" onclick="calcAvgTemp()" style="width: 100%; margin-top: 1rem;">Calculate</button>
+        <div id="temp-result" class="calc-result"></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="site-footer" style="margin-top: 4rem;">
+<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-logo">
       <span class="logo-icon">⛈</span>
@@ -107,8 +93,11 @@
     </div>
     <div class="footer-links">
       <a href="index.html#hero">Home</a>
+      <a href="index.html#live">Live Weather</a>
+      <a href="index.html#live-map">Radar</a>
+      <a href="index.html#moon">Moon</a>
+      <a href="index.html#rainfall-update">Alerts</a>
       <a href="index.html#outlook">Outlook</a>
-      <a href="resources.html">Resources</a>
       <a href="index.html#about">About</a>
     </div>
     <p class="footer-copy">© 2026 Mudasir Jameel Weather Analysis &nbsp;·&nbsp; Pakistan Monsoon Outlook</p>

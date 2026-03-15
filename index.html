@@ -23,12 +23,18 @@
     <ul class="nav-menu" id="nav-menu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#live">Live Weather</a></li>
-      <li><a href="#live-map">Live Map</a></li>
-      <li><a href="#moon">Moon Update</a></li>
+      <li><a href="#live-map">Radar</a></li>
+      <li><a href="#moon">Moon</a></li>
+      <li><a href="#rainfall-update">Rainfall Alert</a></li>
       <li><a href="#outlook">Outlook 2026</a></li>
-      <li><a href="#drivers">Climate Drivers</a></li>
-      <li><a href="tools.html">Interactive Tools</a></li>
-      <li><a href="resources.html">Resources</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Resources ▾</a>
+        <div class="dropdown-content">
+          <a href="tools.html">Calculators ⚡</a>
+          <a href="indicators.html">Live Indicators 🌍</a>
+          <a href="resources.html">Data Sources</a>
+        </div>
+      </li>
       <li><a href="#about">About</a></li>
     </ul>
     <div class="nav-controls">
@@ -74,18 +80,6 @@
     <div class="hero-btns reveal">
       <a href="#outlook" class="btn-primary">Read Outlook 2026</a>
       <a href="#live" class="btn-outline">Live Weather ↓</a>
-    </div>
-
-    <div class="hero-clock reveal">
-      <div class="clock-item">
-        <span class="clk-label">Pakistan Standard Time</span>
-        <span id="live-time" class="clk-val mono">--:--:--</span>
-      </div>
-      <span class="clk-sep"></span>
-      <div class="clock-item">
-        <span class="clk-label">Date</span>
-        <span id="live-date" class="clk-val">—</span>
-      </div>
     </div>
   </div>
 
@@ -148,10 +142,10 @@
       </div>
       
       <div class="moon-img-wrap glass reveal" data-delay="150">
-        <img id="the-moon-pic" src="moon.png" alt="Shawwal Moon Visibility Map" class="moon-img" loading="lazy">
+        <img id="the-moon-pic" src="moon.png.jpg" alt="Shawwal Moon Visibility Map" class="moon-img" loading="lazy">
         <script>
           const moonImg = document.getElementById('the-moon-pic');
-          const possibleNames = ['moon.png.png', 'moon.png.jpg', 'moon.jpg', 'moon.jpeg'];
+          const possibleNames = ['moon.png', 'moon.jpg', 'moon.png.png'];
           let attempt = 0;
           moonImg.onerror = function() {
             if (attempt < possibleNames.length) {
@@ -166,7 +160,38 @@
   </div>
 </section>
 
-<section class="section section-alt" id="outlook">
+<section class="section section-alt" id="rainfall-update">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Weather Alert</span>
+      <h2 class="sec-title">Upcoming Western <span class="accent">Disturbances</span></h2>
+      <p class="sec-sub">Significant Rainfall Accumulation Expected (March 18 onwards)</p>
+    </div>
+    
+    <div class="moon-layout">
+      <div class="moon-img-wrap glass reveal" data-delay="100">
+        <img src="Rainfall accumulation chart.png" alt="Rainfall Accumulation Chart" class="moon-img" loading="lazy">
+      </div>
+      
+      <div class="moon-text reveal" data-delay="200">
+        <p>A series of potent Western Disturbances are expected to advance toward Pakistan beginning March 18, initiating a prolonged spell of widespread precipitation that is likely to persist through the latter part of the month. These systems are projected to influence nearly every province, delivering significant rainfall across much of the country.</p>
+        
+        <p>Khyber Pakhtunkhwa and the northern mountainous regions are expected to bear the brunt of this activity, where cumulative precipitation may exceed 200 mm, accompanied by periods of intense downpours. Central and western belts will also experience substantial rainfall, with anticipated totals ranging between 60-150 mm around Quetta and parts of southern Balochistan, including Gwadar, Pishukan, Panjgur, and Turbat. Across Punjab, rainfall accumulations are projected to fall within the 80-120 mm range.</p>
+        
+        <p>Even the southern coastal belt is likely to benefit from this active pattern. Areas around Karachi and the broader Sindh littoral could receive 30-50 mm of rainfall.</p>
+        
+        <div class="moon-verdict glass" style="border-left-color: var(--neutral); background: var(--neutral-bg);">
+          <span class="mv-icon">🌧️</span>
+          <div>
+            <strong>Overview:</strong> Overall, this sequence of Western Disturbances appears poised to produce a well-distributed and significant rainfall episode across Pakistan, marking one of the more consequential wet spells of the season.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outlook">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">Seasonal Analysis</span>
@@ -332,7 +357,7 @@
     </div></div>
 </section>
 
-<section class="section" id="drivers">
+<section class="section section-alt" id="drivers">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">Science</span>
@@ -478,7 +503,7 @@
   </div>
 </section>
 
-<section class="section section-alt" id="cities">
+<section class="section" id="cities">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">Reference Data</span>
@@ -541,7 +566,7 @@
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section section-alt" id="about">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">About</span>
@@ -600,6 +625,7 @@
       <a href="#live">Live Weather</a>
       <a href="#live-map">Live Map</a>
       <a href="#moon">Moon</a>
+      <a href="#rainfall-update">Alerts</a>
       <a href="#outlook">Outlook</a>
       <a href="#drivers">Drivers</a>
       <a href="tools.html">Interactive Tools</a>

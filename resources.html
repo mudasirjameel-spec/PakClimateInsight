@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resources & Live Conditions — Mudasir Jameel</title>
+  <title>Data Resources — Mudasir Jameel</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -22,9 +22,19 @@
     <ul class="nav-menu" id="nav-menu">
       <li><a href="index.html#hero">Home</a></li>
       <li><a href="index.html#live">Live Weather</a></li>
+      <li><a href="index.html#live-map">Radar</a></li>
+      <li><a href="index.html#moon">Moon</a></li>
+      <li><a href="index.html#rainfall-update">Rainfall Alert</a></li>
       <li><a href="index.html#outlook">Outlook 2026</a></li>
-      <li><a href="tools.html">Interactive Tools</a></li>
-      <li><a href="resources.html" class="active">Resources</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn active">Resources ▾</a>
+        <div class="dropdown-content">
+          <a href="tools.html">Calculators ⚡</a>
+          <a href="indicators.html">Live Indicators 🌍</a>
+          <a href="resources.html" class="active">Data Sources</a>
+        </div>
+      </li>
+      <li><a href="index.html#about">About</a></li>
     </ul>
     <div class="nav-controls">
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -36,7 +46,7 @@
   </div>
 </nav>
 
-<section class="hero" id="hero" style="min-height: 40vh; padding-bottom: 2rem;">
+<section class="hero" id="hero" style="min-height: 40vh; padding-bottom: 2rem; padding-top: 140px;">
   <div class="hero-glow g1"></div>
   <div class="hero-glow g3"></div>
 
@@ -45,53 +55,8 @@
       Data <span class="hero-name">Resources</span>
     </h1>
     <p class="hero-desc reveal" style="max-width: 600px; margin: 0 auto;">
-      Live tracking of global climate indicators and access to the official meteorological agencies powering our 2026 Pakistan Monsoon analysis.
+      Access to the official meteorological agencies and external models powering our 2026 Pakistan Monsoon analysis.
     </p>
-  </div>
-</section>
-
-<section class="section" id="live-drivers" style="padding-top: 2rem;">
-  <div class="container">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Global Monitoring</span>
-      <h2 class="sec-title">Current <span class="accent">Driver Conditions</span></h2>
-      <p class="sec-sub">Real-time status of the primary macro-drivers influencing South Asian weather.</p>
-    </div>
-
-    <div class="cities-grid">
-      <div class="city-card glass reveal" style="position: relative;">
-        <div class="badge-dot" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 10px; height: 10px; border-radius: 50%; background: var(--warn); animation: pulse 2s infinite;"></div>
-        <div class="cc-top" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem;"><h3 class="cc-name">ENSO Status</h3></div>
-        <span class="cc-province" style="display: block; margin-bottom: 1.5rem;">Niño 3.4 Region</span>
-        <div class="cc-stats">
-          <div class="cc-stat"><span class="ccs-lbl">Current Anomaly</span><span class="ccs-val mono" id="live-enso-val" style="color: var(--warn);">+0.62°C</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Status</span><span class="ccs-val sig-below" id="live-enso-status">El Niño Watch</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Trend</span><span class="ccs-val mono">Warming ↗</span></div>
-        </div>
-      </div>
-
-      <div class="city-card glass reveal" style="position: relative;">
-        <div class="badge-dot" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 10px; height: 10px; border-radius: 50%; background: var(--neutral); animation: pulse 2s infinite 0.5s;"></div>
-        <div class="cc-top" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem;"><h3 class="cc-name">IOD Status</h3></div>
-        <span class="cc-province" style="display: block; margin-bottom: 1.5rem;">Indian Ocean Dipole</span>
-        <div class="cc-stats">
-          <div class="cc-stat"><span class="ccs-lbl">Latest Index</span><span class="ccs-val mono" id="live-iod-val">+0.15°C</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Status</span><span class="ccs-val sig-neutral" id="live-iod-status">Neutral</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Trend</span><span class="ccs-val mono">Cooling ↘</span></div>
-        </div>
-      </div>
-
-      <div class="city-card glass reveal" style="position: relative;">
-        <div class="badge-dot" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 10px; height: 10px; border-radius: 50%; background: var(--above); animation: pulse 2s infinite 1s;"></div>
-        <div class="cc-top" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem;"><h3 class="cc-name">Arabian Sea</h3></div>
-        <span class="cc-province" style="display: block; margin-bottom: 1.5rem;">SST Anomalies</span>
-        <div class="cc-stats">
-          <div class="cc-stat"><span class="ccs-lbl">North Basin</span><span class="ccs-val mono" id="live-sst-val" style="color: var(--above);">+0.55°C</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Status</span><span class="ccs-val sig-above">Above Normal</span></div>
-          <div class="cc-stat"><span class="ccs-lbl">Moisture Flux</span><span class="ccs-val mono">Moderate</span></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -105,30 +70,33 @@
 
     <div class="cities-grid">
       <a href="https://www.pmd.gov.pk/" target="_blank" class="city-card glass reveal" style="text-align: center; text-decoration: none;">
-        <div class="dp-icon-box" style="margin: 0 auto 1rem;">PMD</div>
+        <div class="dp-icon-box" style="margin: 0 auto 1rem; width: 60px; height: 60px; border-radius: 50%; font-size: 1.2rem;">PMD</div>
         <h3 class="cc-name">Pakistan Met Dept</h3>
-        <p class="cc-desc">National authority for daily weather forecasts and flood warnings.</p>
+        <p class="cc-desc" style="border-top: none; padding-top: 0; margin-top: 0.5rem;">National authority for daily weather forecasts and flood warnings.</p>
       </a>
+      
       <a href="https://www.ecmwf.int/" target="_blank" class="city-card glass reveal" style="text-align: center; text-decoration: none;">
-        <div class="dp-icon-box" style="margin: 0 auto 1rem;">EU</div>
+        <div class="dp-icon-box" style="margin: 0 auto 1rem; width: 60px; height: 60px; border-radius: 50%; font-size: 1.2rem;">EU</div>
         <h3 class="cc-name">ECMWF</h3>
-        <p class="cc-desc">World-leading ensemble model data for long-range seasonal trends.</p>
+        <p class="cc-desc" style="border-top: none; padding-top: 0; margin-top: 0.5rem;">World-leading ensemble model data for long-range seasonal trends.</p>
       </a>
+      
       <a href="https://www.noaa.gov/" target="_blank" class="city-card glass reveal" style="text-align: center; text-decoration: none;">
-        <div class="dp-icon-box" style="margin: 0 auto 1rem;">US</div>
+        <div class="dp-icon-box" style="margin: 0 auto 1rem; width: 60px; height: 60px; border-radius: 50%; font-size: 1.2rem;">US</div>
         <h3 class="cc-name">NOAA / CPC</h3>
-        <p class="cc-desc">Primary source for ENSO (El Niño/La Niña) monitoring and Pacific signals.</p>
+        <p class="cc-desc" style="border-top: none; padding-top: 0; margin-top: 0.5rem;">Primary source for ENSO (El Niño/La Niña) monitoring and Pacific signals.</p>
       </a>
+      
       <a href="https://bom.gov.au/climate/" target="_blank" class="city-card glass reveal" style="text-align: center; text-decoration: none;">
-        <div class="dp-icon-box" style="margin: 0 auto 1rem;">BOM</div>
+        <div class="dp-icon-box" style="margin: 0 auto 1rem; width: 60px; height: 60px; border-radius: 50%; font-size: 1.2rem;">BOM</div>
         <h3 class="cc-name">Bureau of Met.</h3>
-        <p class="cc-desc">Australian government agency providing robust IOD and MJO tracking.</p>
+        <p class="cc-desc" style="border-top: none; padding-top: 0; margin-top: 0.5rem;">Australian government agency providing robust IOD and MJO tracking.</p>
       </a>
     </div>
   </div>
 </section>
 
-<footer class="site-footer" style="margin-top: 4rem;">
+<footer class="site-footer" style="margin-top: 2rem;">
   <div class="footer-inner">
     <div class="footer-logo">
       <span class="logo-icon">⛈</span>
@@ -136,8 +104,11 @@
     </div>
     <div class="footer-links">
       <a href="index.html#hero">Home</a>
+      <a href="index.html#live">Live Weather</a>
+      <a href="index.html#live-map">Radar</a>
+      <a href="index.html#moon">Moon</a>
+      <a href="index.html#rainfall-update">Alerts</a>
       <a href="index.html#outlook">Outlook</a>
-      <a href="tools.html">Interactive Tools</a>
       <a href="index.html#about">About</a>
     </div>
     <p class="footer-copy">© 2026 Mudasir Jameel Weather Analysis &nbsp;·&nbsp; Pakistan Monsoon Outlook</p>
