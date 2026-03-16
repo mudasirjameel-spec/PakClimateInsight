@@ -239,9 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   typeLoop();
 
-  /* ==========================================================
-     📍 FIX 1: BULLETPROOF LIVE WEATHER & AQI
-     ========================================================== */
+  /* ---- LIVE WEATHER CARDS & AQI ---- */
   const WMO = {
     0:'Clear Sky', 1:'Mainly Clear', 2:'Partly Cloudy', 3:'Overcast',
     45:'Foggy', 48:'Icy Fog', 51:'Light Drizzle', 53:'Drizzle', 55:'Dense Drizzle',
@@ -266,16 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const results = await Promise.all(LIVE_CITIES.map(async city => {
         let wRes = null, aRes = null;
-        
-        // Try/Catch individually so if AQI fails (due to adblocker), weather still loads!
-        try {
-            wRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&wind_speed_unit=kmh&timezone=Asia%2FKarachi`).then(r => r.json());
-        } catch(e) {}
-        
-        try {
-            aRes = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${city.lat}&longitude=${city.lon}&current=us_aqi`).then(r => r.json());
-        } catch(e) {}
-
+        try { wRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&wind_speed_unit=kmh&timezone=Asia%2FKarachi`).then(r => r.json()); } catch(e) {}
+        try { aRes = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${city.lat}&longitude=${city.lon}&current=us_aqi`).then(r => r.json()); } catch(e) {}
         return { city, weather: wRes, aqi: aRes };
       }));
       
@@ -283,8 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
       results.forEach(data => {
         if(data && data.weather && data.weather.current) {
           const c = data.weather.current;
-          
-          // Safe fallback for AQI if blocked
           const aqiVal = (data.aqi && data.aqi.current && data.aqi.current.us_aqi) ? data.aqi.current.us_aqi : 50;
           
           let aqiBadge = '';
@@ -299,12 +287,73 @@ document.addEventListener('DOMContentLoaded', () => {
           grid.appendChild(card);
         }
       });
-      
       if(grid.innerHTML === '') grid.innerHTML = '<div class="w-loading" style="color:var(--below)">Weather data temporarily unavailable.</div>';
-      
-    } catch { grid.innerHTML = '<div class="w-loading" style="color:var(--below)">Unable to load weather data. Check your internet connection.</div>'; }
+    } catch { grid.innerHTML = '<div class="w-loading" style="color:var(--below)">Unable to load weather data.</div>'; }
   }
   loadWeather();
+
+  /* ---- RIVER GAUGE API ---- */
+  async function loadRiverData() {
+    const grid = document.getElementById('river-grid');
+    if(!grid) return;
+    const today = new Date();
+    const start = today.toISOString().split('T')[0];
+    const RIVERS = [
+      { name: 'Indus (Tarbela)', lat: 34.08, lon: 72.82 }, { name: 'Jhelum (Mangla)', lat: 33.14, lon: 73.64 },
+      { name: 'Chenab (Marala)', lat: 32.67, lon: 74.46 }, { name: 'Kabul (Nowshera)',lat: 34.01, lon: 71.98 },
+      { name: 'Indus (Sukkur)',  lat: 27.68, lon: 68.87 }
+    ];
+
+    try {
+      const results = await Promise.all(RIVERS.map(river => {
+        return fetch(`https://flood-api.open-meteo.com/v1/flood?latitude=${river.lat}&longitude=${river.lon}&daily=river_discharge&forecast_days=1`)
+              .then(r => r.json()).then(data => ({
+                  source: 'Open-Meteo GloFAS', discharge: data.daily?.river_discharge?.[0] || 0
+              })).catch(() => null);
+      }));
+      grid.innerHTML = '';
+      results.forEach((data, i) => { 
+        if(data && data.discharge !== undefined) { 
+          const discharge = parseFloat(data.discharge);
+          const card = document.createElement('div'); card.className = 'glass-card w-card reveal in';
+          let status = 'Normal Flow'; let badgeColor = 'var(--above)';
+          if (discharge > 3000 && discharge <= 8000) { status = 'High Flow'; badgeColor = 'var(--warn)'; }
+          else if (discharge > 8000) { status = 'Flood Risk'; badgeColor = 'var(--below)'; }
+          card.innerHTML = `
+            <div class="wc-top"><div class="wc-city">${RIVERS[i].name}</div><span class="wc-badge" style="background:${badgeColor}; color:#000;">${status}</span></div>
+            <div class="wc-cond">Forecasted Discharge</div>
+            <div style="font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; color: var(--accent2); text-shadow: 0 0 15px rgba(59, 130, 246, 0.4); margin-bottom: 1.5rem;">${discharge} <span style="font-size: 1rem; color: var(--text3);">m³/s</span></div>
+            <div class="wc-stats"><div class="wc-stat"><span class="wc-stat-icon">🌊</span> Source</div><div class="wc-row-val" style="font-size: 0.8rem; color: var(--text3);">Open-Meteo GloFAS</div></div>`;
+          grid.appendChild(card); 
+        } 
+      });
+    } catch { grid.innerHTML = '<div class="w-loading" style="color:var(--below)">Unable to load hydrological models.</div>'; }
+  }
+  loadRiverData();
+
+  /* ---- EARTHQUAKES API ---- */
+  async function loadEarthquakes() {
+    const grid = document.getElementById('quake-grid');
+    if(!grid) return;
+    try {
+      const res = await fetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=3.5&limit=4&minlatitude=23&maxlatitude=37&minlongitude=60&maxlongitude=78');
+      const data = await res.json();
+      grid.innerHTML = '';
+      if(data.features.length === 0) { grid.innerHTML = '<div class="w-loading">No recent significant earthquakes in the region.</div>'; return; }
+      data.features.forEach(eq => {
+          const props = eq.properties; const mag = props.mag.toFixed(1); const place = props.place;
+          const time = new Date(props.time).toLocaleString('en-PK', {timeZone: 'Asia/Karachi', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+          let magColor = 'var(--above)'; if(mag >= 4.5) magColor = 'var(--warn)'; if(mag >= 5.5) magColor = 'var(--below)';
+          const card = document.createElement('div'); card.className = 'glass-card w-card reveal in';
+          card.innerHTML = `
+            <div class="wc-top" style="margin-bottom:0.5rem;"><div class="wc-city" style="font-size:1rem; color:var(--text2);">Magnitude <span style="color:${magColor}; font-size:1.4rem; margin-left:5px;">${mag}</span></div><span class="wc-badge" style="background:${magColor}; color:#000;">USGS</span></div>
+            <div class="wc-cond" style="text-transform:none; font-size:0.95rem; color:var(--text1); margin-bottom:1rem; font-weight:600; min-height:45px; display:flex; align-items:center; justify-content:center;">${place}</div>
+            <div class="wc-stats" style="border-top: 1px solid var(--border); padding-top: 0.8rem; justify-content:center;"><div class="wc-stat"><span class="wc-stat-icon">🕒</span> <span class="wc-row-val">${time} PKT</span></div></div>`;
+          grid.appendChild(card);
+      });
+    } catch { grid.innerHTML = '<div class="w-loading" style="color:var(--below)">Unable to load seismic data.</div>'; }
+  }
+  loadEarthquakes();
 
   /* ---- SHARE BUTTON ---- */
   const shareBtn = document.getElementById('share-btn');
@@ -316,9 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  /* ==========================================================
-     📍 FIX 2: BULLETPROOF PROBABILITY CHART
-     ========================================================== */
+  /* ---- PROBABILITY BAR CHART ---- */
   let chartInst = null;
   function buildChart() {
     const ctx = document.getElementById('probChart');
@@ -355,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const chartObs = new IntersectionObserver(entries => { 
           if (entries[0].isIntersecting) { 
               buildChart(); 
-              chartObs.disconnect(); // FIX: Stops the chart from rebuilding endlessly
+              chartObs.disconnect(); 
           } 
       }, { threshold: 0.1 });
       chartObs.observe(chartEl.parentElement); 
@@ -387,10 +434,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     PMD GIS TEMPERATURE & RAINFALL MAP
+     PMD GIS TEMPERATURE & RAINFALL MAP (Leaflet.js)
      ========================================================== */
-  
-  // 1. Populating the History Dropdown SAFELY & INDEPENDENTLY
+
+  // 1. SAFELY POPULATE DROPDOWN INDEPENDENT OF MAP
   const historySelector = document.getElementById('history-date-selector');
   if (historySelector && window.PMD_ARCHIVE) {
       historySelector.innerHTML = ''; 
@@ -402,10 +449,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // 2. Setting up Map Variables
+  // 2. SETUP MAP VARIABLES
   const pmdMapElement = document.getElementById('pakistan-temp-map');
   const historyMapElement = document.getElementById('history-temp-map');
-  const isHistoryPage = !!historyMapElement;
   const targetElement = pmdMapElement || historyMapElement;
 
   if (targetElement) {
@@ -424,7 +470,9 @@ document.addEventListener('DOMContentLoaded', () => {
           
           let selectedDate = historySelector ? historySelector.value : Object.keys(window.PMD_ARCHIVE)[0]; 
 
-          const map = L.map(targetElement.id, { scrollWheelZoom: false, attributionControl: true }).setView([30.0, 69.0], 5);
+          // Initialize Map - ATTRIBUTION CONTROL FALSE (REMOVES LOGO/TEXT)
+          const map = L.map(targetElement.id, { scrollWheelZoom: false, attributionControl: false }).setView([30.0, 69.0], 5);
+          
           const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 10 });
           const lightTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 10 });
           
@@ -439,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setMapTheme();
           window.addEventListener('theme-changed', setMapTheme);
 
+          // Draw GeoJSON Boundaries
           fetch('pk.json').then(response => response.json()).then(data => {
               const neonPalette = ['#06b6d4', '#3b82f6', '#10b981', '#8b5cf6', '#ec4899', '#f59e0b'];
               let colorIndex = 0;
@@ -498,7 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
                       </div>
                     </div>`;
               } else {
-                  // Rainfall Mode
                   markerIcon = L.divIcon({ className: 'custom-dot-icon', html: `<div class="map-dot-rain"></div>`, iconSize: [18, 18], iconAnchor: [9, 18] });
                   const rainText = data.rain === 0 ? "0 mm" : `${data.rain} mm`;
                   popupContent = `
