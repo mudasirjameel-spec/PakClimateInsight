@@ -13,13 +13,13 @@ window.PMD_ARCHIVE = {
   // --- 18 MARCH (NEW BLANK DAY - WAITING FOR MORNING UPDATE) ---
   "18 March 2026": [
     // Punjab
-    { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: "--", min: "--", rain: "--" },
-    { city: "Islamabad",       lat: 33.7294, lon: 73.0931, max: "--", min: "--", rain: "--" },
+    { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: 21.5, min: 16.3, rain: "--" },
+    { city: "Islamabad",       lat: 33.7294, lon: 73.0931, max: 15.5, min: 12.0, rain: "--" },
     { city: "Rawalpindi",      lat: 33.5973, lon: 73.0479, max: "--", min: "--", rain: "--" },
-    { city: "Faisalabad",      lat: 31.4181, lon: 73.0776, max: "--", min: "--", rain: "--" },
-    { city: "Multan",          lat: 30.1978, lon: 71.4697, max: "--", min: "--", rain: "--" },
-    { city: "Sargodha",        lat: 32.0836, lon: 72.6711, max: "--", min: "--", rain: "--" },
-    { city: "Jhelum",          lat: 32.9405, lon: 73.7276, max: "--", min: "--", rain: "--" },
+    { city: "Faisalabad",      lat: 31.4181, lon: 73.0776, max: 19.2, min: 16.0, rain: "--" },
+    { city: "Multan",          lat: 30.1978, lon: 71.4697, max: 24.3, min: 16.7, rain: "--" },
+    { city: "Sargodha",        lat: 32.0836, lon: 72.6711, max: 19.7, min: 15.8, rain: "--" },
+    { city: "Jhelum",          lat: 32.9405, lon: 73.7276, max: 18.3, min: 12.4, rain: "--" },
     { city: "Bahawalpur",      lat: 29.3957, lon: 71.6833, max: "--", min: "--", rain: "--" },
     { city: "Sialkot",         lat: 32.4925, lon: 74.5310, max: "--", min: "--", rain: "--" },
     { city: "Gujranwala",      lat: 32.1617, lon: 74.1883, max: "--", min: "--", rain: "--" },
