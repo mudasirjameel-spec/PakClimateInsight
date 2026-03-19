@@ -13,7 +13,7 @@ window.PMD_ARCHIVE = {
   // --- 18 MARCH (NEW BLANK DAY - WAITING FOR MORNING UPDATE) ---
   "18 March 2026": [
     // Punjab
-    { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: 22, min: 16.3, rain: "--" },
+    { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: 21.5, min: 16.3, rain: "--" },
     { city: "Islamabad",       lat: 33.7294, lon: 73.0931, max: 15.5, min: 12.0, rain: "--" },
     { city: "Rawalpindi",      lat: 33.5973, lon: 73.0479, max: "--", min: "--", rain: "--" },
     { city: "Faisalabad",      lat: 31.4181, lon: 73.0776, max: 19.2, min: 16.0, rain: "--" },
