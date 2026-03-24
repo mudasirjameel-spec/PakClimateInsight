@@ -341,6 +341,16 @@ canvas { max-width: 100% !important; }
 .map-dot-rain { width: 18px; height: 18px; background: var(--accent2); border-radius: 0 50% 50% 50%; transform: rotate(45deg); border: 2px solid var(--bg); box-shadow: 0 0 12px rgba(59, 130, 246, 0.8); cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
 .map-dot-rain:hover { transform: rotate(45deg) scale(1.4); background: #60a5fa; }
 
+/* FIX: Remove Leaflet default marker icon artifacts (The "Diamonds") */
+.custom-dot-icon {
+    background: transparent !important;
+    border: none !important;
+}
+.leaflet-marker-shadow {
+    display: none !important;
+}
+/* ========================================================== */
+
 path.leaflet-interactive.pak-glow-border { filter: drop-shadow(0 0 5px #06b6d4) drop-shadow(0 0 10px #06b6d4) !important; transition: fill-opacity 0.3s ease, filter 0.3s ease; }
 path.leaflet-interactive.pak-glow-border:hover { fill-opacity: 0.3 !important; cursor: crosshair; }
 
@@ -365,10 +375,9 @@ path.leaflet-interactive.pak-glow-border-rain:hover { fill-opacity: 0.3 !importa
 .tp-min { color: var(--accent); } 
 .tp-lbl { display: block; font-size: 0.6rem; color: var(--text3); font-weight: 500; margin-bottom: -2px; }
 
-/* ====== WATERMARK COMPLETELY REMOVED ====== */
+/* WATERMARK COMPLETELY REMOVED */
 .leaflet-control-attribution { display: none !important; }
 .leaflet-bottom.leaflet-right { display: none !important; }
-/* ========================================== */
 
 .history-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
 .date-selector { background: var(--bg3); color: var(--text1); border: 1px solid var(--border); padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-family: var(--font-head); font-weight: 600; font-size: 1rem; cursor: pointer; outline: none; min-width: 250px; }

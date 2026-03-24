@@ -10,8 +10,8 @@
    - Evening (5 PM): Replace "--" with the official 'max' temp.
    ============================================================ */
 window.PMD_ARCHIVE = {
-  // --- 23 MARCH (NEW BLANK DAY - WAITING FOR TONIGHT'S UPDATE) ---
-  "23 March 2026": [
+  // --- 24 MARCH (NEW BLANK DAY - WAITING FOR TONIGHT'S UPDATE) ---
+  "24 March 2026": [
     // Punjab
     { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: "--", min: "--", rain: "--" },
     { city: "Islamabad",       lat: 33.7294, lon: 73.0931, max: "--", min: "--", rain: "--" },
@@ -106,6 +106,95 @@ window.PMD_ARCHIVE = {
     { city: "Bunji",        lat: 35.64,   lon: 74.63,   max: "--", min: "--", rain: "--" },
     { city: "Garhi Dupatta",lat: 34.22,   lon: 73.61,   max: "--", min: "--", rain: "--" },
     { city: "Rawalakot",    lat: 33.8576, lon: 73.7602, max: "--", min: "--", rain: "--" }
+  ],
+
+  // --- 23 MARCH 2026 ---
+  "23 March 2026": [
+    { city: "Lahore", lat: 31.5204, lon: 74.3587, max: 33.5, min: 18.0, rain: 0 },
+    { city: "Islamabad", lat: 33.7294, lon: 73.0931, max: 29.5, min: 15.0, rain: 0 },
+    { city: "Rawalpindi", lat: 33.5973, lon: 73.0479, max: 29.0, min: 15.5, rain: 0 },
+    { city: "Faisalabad", lat: 31.4181, lon: 73.0776, max: 34.0, min: 18.5, rain: 0 },
+    { city: "Multan", lat: 30.1978, lon: 71.4697, max: 35.5, min: 20.0, rain: 0 },
+    { city: "Sargodha", lat: 32.0836, lon: 72.6711, max: 33.8, min: 17.8, rain: 0 },
+    { city: "Jhelum", lat: 32.9405, lon: 73.7276, max: 31.0, min: 15.5, rain: 0 },
+    { city: "Bahawalpur", lat: 29.3957, lon: 71.6833, max: 36.0, min: 19.2, rain: 0 },
+    { city: "Sialkot", lat: 32.4925, lon: 74.5310, max: 31.5, min: 16.0, rain: 0 },
+    { city: "Gujranwala", lat: 32.1617, lon: 74.1883, max: 32.8, min: 17.2, rain: 0 },
+    { city: "D.G. Khan", lat: 30.0489, lon: 70.6455, max: 35.0, min: 19.5, rain: 0 },
+    { city: "Murree", lat: 33.9070, lon: 73.3943, max: 18.5, min: 8.2, rain: 0 },
+    { city: "Sahiwal", lat: 30.6682, lon: 73.1114, max: 34.5, min: 18.0, rain: 0 },
+    { city: "Bhakkar", lat: 31.6289, lon: 71.0634, max: 34.0, min: 17.5, rain: 0 },
+    { city: "Mianwali", lat: 32.5839, lon: 71.5370, max: 32.5, min: 16.5, rain: 0 },
+    { city: "Attock", lat: 33.7660, lon: 72.3609, max: 30.0, min: 15.0, rain: 0 },
+    { city: "Chakwal", lat: 32.9328, lon: 72.8530, max: 28.5, min: 13.5, rain: 0 },
+    { city: "Mandi Bahauddin", lat: 32.5861, lon: 73.4915, max: 32.0, min: 16.8, rain: 0 },
+    { city: "Hafizabad", lat: 32.0709, lon: 73.6880, max: 33.0, min: 17.5, rain: 0 },
+    { city: "Narowal", lat: 32.1020, lon: 74.8730, max: 32.2, min: 16.6, rain: 0 },
+    { city: "Kasur", lat: 31.1154, lon: 74.4436, max: 33.2, min: 17.8, rain: 0 },
+    { city: "Sheikhupura", lat: 31.7167, lon: 73.9850, max: 33.5, min: 18.0, rain: 0 },
+    { city: "Jhang", lat: 31.2781, lon: 72.3317, max: 34.8, min: 18.8, rain: 0 },
+    { city: "T.T. Singh", lat: 30.9713, lon: 72.4827, max: 34.5, min: 18.5, rain: 0 },
+    { city: "Okara", lat: 30.8138, lon: 73.4534, max: 34.0, min: 18.2, rain: 0 },
+    { city: "Rahim Yar Khan", lat: 28.4212, lon: 70.2989, max: 37.5, min: 20.5, rain: 0 },
+    { city: "Vehari", lat: 30.0419, lon: 72.3528, max: 35.0, min: 19.0, rain: 0 },
+    { city: "Khanewal", lat: 30.3017, lon: 71.9321, max: 35.2, min: 19.5, rain: 0 },
+    { city: "Lodhran", lat: 29.5339, lon: 71.6324, max: 35.5, min: 19.8, rain: 0 },
+    { city: "Layyah", lat: 30.9693, lon: 70.9428, max: 35.0, min: 18.5, rain: 0 },
+    { city: "Muzaffargarh", lat: 30.0703, lon: 71.1933, max: 35.8, min: 19.5, rain: 0 },
+    { city: "Rajanpur", lat: 29.1035, lon: 70.3250, max: 34.5, min: 19.0, rain: 0 },
+    { city: "Bahawalnagar", lat: 29.9987, lon: 73.2536, max: 35.5, min: 19.0, rain: 0 },
+    { city: "Chiniot", lat: 31.7200, lon: 72.9789, max: 34.0, min: 18.0, rain: 0 },
+    { city: "Pakpattan", lat: 30.3410, lon: 73.3866, max: 34.5, min: 18.5, rain: 0 },
+    { city: "Nankana Sahib", lat: 31.4492, lon: 73.7058, max: 33.5, min: 17.8, rain: 0 },
+    { city: "Khushab", lat: 32.2952, lon: 72.3502, max: 32.5, min: 16.5, rain: 0 },
+    { city: "Quetta", lat: 30.1798, lon: 66.9750, max: 26.5, min: 9.0, rain: 0 },
+    { city: "Khuzdar", lat: 27.8123, lon: 66.6127, max: 31.0, min: 14.5, rain: 0 },
+    { city: "Kalat", lat: 29.0225, lon: 66.5916, max: 25.5, min: 7.5, rain: 0 },
+    { city: "Dalbandin", lat: 28.8885, lon: 64.4062, max: 35.5, min: 16.0, rain: 0 },
+    { city: "Nokkundi", lat: 28.8225, lon: 62.7531, max: 37.0, min: 18.0, rain: 0 },
+    { city: "Panjgur", lat: 26.9719, lon: 64.0945, max: 34.5, min: 17.5, rain: 0 },
+    { city: "Turbat", lat: 26.0012, lon: 63.0485, max: 40.0, min: 23.0, rain: 0 },
+    { city: "Gwadar", lat: 25.1216, lon: 62.3254, max: 35.0, min: 24.5, rain: 0 },
+    { city: "Pasni", lat: 25.2630, lon: 63.4692, max: 36.5, min: 23.0, rain: 0 },
+    { city: "Jiwani", lat: 25.0485, lon: 61.7402, max: 34.5, min: 23.5, rain: 0 },
+    { city: "Ormara", lat: 25.2088, lon: 64.6357, max: 35.0, min: 24.0, rain: 0 },
+    { city: "Lasbela", lat: 26.2278, lon: 66.2931, max: 38.5, min: 20.5, rain: 0 },
+    { city: "Sibbi", lat: 29.5448, lon: 67.8764, max: 37.0, min: 21.5, rain: 0 },
+    { city: "Zhob", lat: 31.3408, lon: 69.4483, max: 25.5, min: 10.5, rain: 0 },
+    { city: "Barkhan", lat: 29.8977, lon: 69.5256, max: 29.0, min: 13.5, rain: 0 },
+    { city: "Karachi", lat: 24.8608, lon: 67.0104, max: 36.5, min: 26.0, rain: 0 },
+    { city: "Hyderabad", lat: 25.3960, lon: 68.3578, max: 39.0, min: 23.5, rain: 0 },
+    { city: "Sukkur", lat: 27.7139, lon: 68.8459, max: 38.5, min: 22.0, rain: 0 },
+    { city: "Larkana", lat: 27.5570, lon: 68.2028, max: 39.5, min: 22.5, rain: 0 },
+    { city: "Nawabshah", lat: 26.2483, lon: 68.4096, max: 40.0, min: 23.0, rain: 0 },
+    { city: "Jacobabad", lat: 28.2818, lon: 68.4376, max: 38.0, min: 21.5, rain: 0 },
+    { city: "Mithi", lat: 24.7370, lon: 69.7971, max: 41.0, min: 22.0, rain: 0 },
+    { city: "Badin", lat: 24.6558, lon: 68.8330, max: 39.0, min: 23.5, rain: 0 },
+    { city: "Peshawar", lat: 34.0150, lon: 71.5249, max: 31.5, min: 16.0, rain: 0 },
+    { city: "Mardan", lat: 34.1989, lon: 72.0468, max: 30.5, min: 15.0, rain: 0 },
+    { city: "Swat", lat: 35.2227, lon: 72.4258, max: 24.5, min: 9.5, rain: 0 },
+    { city: "D.I. Khan", lat: 31.8626, lon: 70.9019, max: 34.0, min: 17.5, rain: 0 },
+    { city: "Bannu", lat: 32.9861, lon: 70.6042, max: 32.5, min: 16.0, rain: 0 },
+    { city: "Kohat", lat: 33.5869, lon: 71.4414, max: 30.5, min: 15.5, rain: 0 },
+    { city: "Dir", lat: 35.19, lon: 71.87, max: 26.0, min: 9.0, rain: 0 },
+    { city: "Mirkhani", lat: 35.58, lon: 71.72, max: 26.0, min: 8.5, rain: 0 },
+    { city: "Balakot", lat: 34.55, lon: 73.35, max: 27.0, min: 11.5, rain: 0 },
+    { city: "Chitral", lat: 35.85, lon: 71.78, max: 26.5, min: 8.0, rain: 0 },
+    { city: "Drosh", lat: 35.56, lon: 71.79, max: 27.0, min: 10.0, rain: 0 },
+    { city: "Pattan", lat: 35.12, lon: 73.01, max: 29.0, min: 9.5, rain: 0 },
+    { city: "Kalam", lat: 35.48, lon: 72.58, max: 17.5, min: 2.5, rain: 0 },
+    { city: "Malam Jabba", lat: 34.7997, lon: 72.5725, max: 16.0, min: 4.5, rain: 0 },
+    { city: "Parachinar", lat: 33.8992, lon: 70.1008, max: 22.0, min: 7.5, rain: 0 },
+    { city: "Kakul", lat: 34.1833, lon: 73.2500, max: 25.5, min: 10.5, rain: 0 },
+    { city: "Gilgit", lat: 35.9208, lon: 74.3083, max: 27.0, min: 8.5, rain: 0 },
+    { city: "Skardu", lat: 35.2971, lon: 75.6333, max: 19.5, min: 4.5, rain: 0 },
+    { city: "Muzaffarabad", lat: 34.3700, lon: 73.4714, max: 29.0, min: 12.5, rain: 0 },
+    { city: "Chilas", lat: 35.42, lon: 74.09, max: 32.0, min: 12.5, rain: 0 },
+    { city: "Astore", lat: 35.36, lon: 74.85, max: 15.5, min: 5.5, rain: 0 },
+    { city: "Gupis", lat: 36.22, lon: 73.44, max: 24.0, min: 6.0, rain: 0 },
+    { city: "Bunji", lat: 35.64, lon: 74.63, max: 26.5, min: 8.5, rain: 0 },
+    { city: "Garhi Dupatta", lat: 34.22, lon: 73.61, max: 29.5, min: 10.0, rain: 0 },
+    { city: "Rawalakot", lat: 33.8576, lon: 73.7602, max: 24.5, min: 7.5, rain: 0 }
   ],
 
   // --- 22 MARCH 2026 ---
@@ -822,6 +911,61 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
+
+  /* ==========================================================
+     📍 ISLAMIC CALENDAR WIDGET GENERATOR
+     ========================================================== */
+  function loadIslamicCalendar() {
+      const container = document.getElementById('islamic-calendar-container');
+      if(!container) return;
+
+      const events = [
+          { year: 2026, events: [
+              { name: "Ramadan Begins", date: "18 Feb 2026" },
+              { name: "Eid ul-Fitr", date: "20 Mar 2026" },
+              { name: "Eid ul-Adha", date: "27 May 2026", highlight: true, note: "Expected in Pakistan on May 27-28, 2026 (subject to moon sighting)" }
+          ]},
+          { year: 2027, events: [
+              { name: "Ramadan Begins", date: "8 Feb 2027" },
+              { name: "Eid ul-Fitr", date: "10 Mar 2027" },
+              { name: "Eid ul-Adha", date: "17 May 2027" }
+          ]},
+          { year: 2028, events: [
+              { name: "Ramadan Begins", date: "28 Jan 2028" },
+              { name: "Eid ul-Fitr", date: "27 Feb 2028" },
+              { name: "Eid ul-Adha", date: "5 May 2028" }
+          ]}
+      ];
+
+      let calHtml = `<div class="glass-card reveal" style="padding: 1.5rem;">
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem;">🌙 Expected Islamic Calendar</h3>
+                    <p style="font-size: 0.9rem; color: var(--text2); margin-bottom: 1.5rem;">Please note: All dates are subject to the official sighting of the moon by the Ruet-e-Hilal Committee.</p>
+                    <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">`;
+      
+      events.forEach(yr => {
+          calHtml += `<div style="background: var(--bg2); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border);">
+                      <h4 style="color: var(--text1); text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; font-size: 1.2rem;">${yr.year}</h4>`;
+          yr.events.forEach(ev => {
+              if (ev.highlight) {
+                  calHtml += `<div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(59, 130, 246, 0.1); border-left: 3px solid var(--accent); border-radius: 4px;">
+                              <strong style="color: var(--accent); display:block; margin-bottom: 4px;">${ev.name}</strong>
+                              <span style="color: var(--text1); font-size: 0.95rem;">${ev.date}</span>
+                              <div style="font-size: 0.8rem; color: var(--warn); margin-top: 6px; line-height: 1.4;">${ev.note}</div>
+                           </div>`;
+              } else {
+                  calHtml += `<div style="margin-bottom: 1rem;">
+                              <strong style="color: var(--text1); display:block; margin-bottom: 2px;">${ev.name}</strong>
+                              <span style="color: var(--text2); font-size: 0.9rem;">${ev.date}</span>
+                           </div>`;
+              }
+          });
+          calHtml += `</div>`;
+      });
+
+      calHtml += `</div></div>`;
+      container.innerHTML = calHtml;
+  }
+  loadIslamicCalendar();
 
   /* ==========================================================
      📍 AUTO-HIGHLIGHT NAVBAR LINKS ON SCROLL (SCROLL SPY)
