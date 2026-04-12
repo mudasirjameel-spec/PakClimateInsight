@@ -4,7 +4,109 @@
    ========================================================== */
 
 window.PMD_ARCHIVE = {
-  // --- 24 MARCH (NEW BLANK DAY) ---
+  // --- 12 April (NEW BLANK DAY) ---
+  "12 April 2026": [
+    // Punjab
+    { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: "--", min: "--", rain: "--" },
+    { city: "Islamabad",       lat: 33.7294, lon: 73.0931, max: "--", min: "--", rain: "--" },
+    { city: "Rawalpindi",      lat: 33.5973, lon: 73.0479, max: "--", min: "--", rain: "--" },
+    { city: "Faisalabad",      lat: 31.4181, lon: 73.0776, max: "--", min: "--", rain: "--" },
+    { city: "Multan",          lat: 30.1978, lon: 71.4697, max: "--", min: "--", rain: "--" },
+    { city: "Sargodha",        lat: 32.0836, lon: 72.6711, max: "--", min: "--", rain: "--" },
+    { city: "Jhelum",          lat: 32.9405, lon: 73.7276, max: "--", min: "--", rain: "--" },
+    { city: "Bahawalpur",      lat: 29.3957, lon: 71.6833, max: "--", min: "--", rain: "--" },
+    { city: "Sialkot",         lat: 32.4925, lon: 74.5310, max: "--", min: "--", rain: "--" },
+    { city: "Gujranwala",      lat: 32.1617, lon: 74.1883, max: "--", min: "--", rain: "--" },
+    { city: "D.G. Khan",       lat: 30.0489, lon: 70.6455, max: "--", min: "--", rain: "--" },
+    { city: "Murree",          lat: 33.9070, lon: 73.3943, max: "--", min: "--", rain: "--" },
+    { city: "Sahiwal",         lat: 30.6682, lon: 73.1114, max: "--", min: "--", rain: "--" },
+    { city: "Bhakkar",         lat: 31.6289, lon: 71.0634, max: "--", min: "--", rain: "--" },
+    { city: "Mianwali",        lat: 32.5839, lon: 71.5370, max: "--", min: "--", rain: "--" },
+    { city: "Attock",          lat: 33.7660, lon: 72.3609, max: "--", min: "--", rain: "--" },
+    { city: "Chakwal",         lat: 32.9328, lon: 72.8530, max: "--", min: "--", rain: "--" },
+    { city: "Mandi Bahauddin", lat: 32.5861, lon: 73.4915, max: "--", min: "--", rain: "--" },
+    { city: "Hafizabad",       lat: 32.0709, lon: 73.6880, max: "--", min: "--", rain: "--" },
+    { city: "Narowal",         lat: 32.1020, lon: 74.8730, max: "--", min: "--", rain: "--" },
+    { city: "Kasur",           lat: 31.1154, lon: 74.4436, max: "--", min: "--", rain: "--" },
+    { city: "Sheikhupura",     lat: 31.7167, lon: 73.9850, max: "--", min: "--", rain: "--" },
+    { city: "Jhang",           lat: 31.2781, lon: 72.3317, max: "--", min: "--", rain: "--" },
+    { city: "T.T. Singh",      lat: 30.9713, lon: 72.4827, max: "--", min: "--", rain: "--" },
+    { city: "Okara",           lat: 30.8138, lon: 73.4534, max: "--", min: "--", rain: "--" },
+    { city: "Rahim Yar Khan",  lat: 28.4212, lon: 70.2989, max: "--", min: "--", rain: "--" },
+    { city: "Vehari",          lat: 30.0419, lon: 72.3528, max: "--", min: "--", rain: "--" },
+    { city: "Khanewal",        lat: 30.3017, lon: 71.9321, max: "--", min: "--", rain: "--" },
+    { city: "Lodhran",         lat: 29.5339, lon: 71.6324, max: "--", min: "--", rain: "--" },
+    { city: "Layyah",          lat: 30.9693, lon: 70.9428, max: "--", min: "--", rain: "--" },
+    { city: "Muzaffargarh",    lat: 30.0703, lon: 71.1933, max: "--", min: "--", rain: "--" },
+    { city: "Rajanpur",        lat: 29.1035, lon: 70.3250, max: "--", min: "--", rain: "--" },
+    { city: "Bahawalnagar",    lat: 29.9987, lon: 73.2536, max: "--", min: "--", rain: "--" },
+    { city: "Chiniot",         lat: 31.7200, lon: 72.9789, max: "--", min: "--", rain: "--" },
+    { city: "Pakpattan",       lat: 30.3410, lon: 73.3866, max: "--", min: "--", rain: "--" },
+    { city: "Nankana Sahib",   lat: 31.4492, lon: 73.7058, max: "--", min: "--", rain: "--" },
+    { city: "Khushab",         lat: 32.2952, lon: 72.3502, max: "--", min: "--", rain: "--" },
+    
+    // Balochistan
+    { city: "Quetta",     lat: 30.1798, lon: 66.9750, max: "--", min: "--", rain: "--" },
+    { city: "Khuzdar",    lat: 27.8123, lon: 66.6127, max: "--", min: "--", rain: "--" },
+    { city: "Kalat",      lat: 29.0225, lon: 66.5916, max: "--", min: "--", rain: "--" },
+    { city: "Dalbandin",  lat: 28.8885, lon: 64.4062, max: "--", min: "--", rain: "--" },
+    { city: "Nokkundi",   lat: 28.8225, lon: 62.7531, max: "--", min: "--", rain: "--" },
+    { city: "Panjgur",    lat: 26.9719, lon: 64.0945, max: "--", min: "--", rain: "--" },
+    { city: "Turbat",     lat: 26.0012, lon: 63.0485, max: "--", min: "--", rain: "--" },
+    { city: "Gwadar",     lat: 25.1216, lon: 62.3254, max: "--", min: "--", rain: "--" },
+    { city: "Pasni",      lat: 25.2630, lon: 63.4692, max: "--", min: "--", rain: "--" },
+    { city: "Jiwani",     lat: 25.0485, lon: 61.7402, max: "--", min: "--", rain: "--" },
+    { city: "Ormara",     lat: 25.2088, lon: 64.6357, max: "--", min: "--", rain: "--" },
+    { city: "Lasbela",    lat: 26.2278, lon: 66.2931, max: "--", min: "--", rain: "--" },
+    { city: "Sibbi",      lat: 29.5448, lon: 67.8764, max: "--", min: "--", rain: "--" },
+    { city: "Zhob",       lat: 31.3408, lon: 69.4483, max: "--", min: "--", rain: "--" },
+    { city: "Barkhan",    lat: 29.8977, lon: 69.5256, max: "--", min: "--", rain: "--" },
+
+    // Sindh
+    { city: "Karachi",    lat: 24.8608, lon: 67.0104, max: "--", min: "--", rain: "--" },
+    { city: "Hyderabad",  lat: 25.3960, lon: 68.3578, max: "--", min: "--", rain: "--" },
+    { city: "Sukkur",     lat: 27.7139, lon: 68.8459, max: "--", min: "--", rain: "--" },
+    { city: "Larkana",    lat: 27.5570, lon: 68.2028, max: "--", min: "--", rain: "--" },
+    { city: "Nawabshah",  lat: 26.2483, lon: 68.4096, max: "--", min: "--", rain: "--" },
+    { city: "Jacobabad",  lat: 28.2818, lon: 68.4376, max: "--", min: "--", rain: "--" },
+    { city: "Mithi",      lat: 24.7370, lon: 69.7971, max: "--", min: "--", rain: "--" },
+    { city: "Badin",      lat: 24.6558, lon: 68.8330, max: "--", min: "--", rain: "--" },
+
+    // KP & Northern Areas
+    { city: "Peshawar",   lat: 34.0150, lon: 71.5249, max: "--", min: "--", rain: "--" },
+    { city: "Mardan",     lat: 34.1989, lon: 72.0468, max: "--", min: "--", rain: "--" },
+    { city: "Swat",       lat: 35.2227, lon: 72.4258, max: "--", min: "--", rain: "--" },
+    { city: "D.I. Khan",  lat: 31.8626, lon: 70.9019, max: "--", min: "--", rain: "--" },
+    { city: "Bannu",      lat: 32.9861, lon: 70.6042, max: "--", min: "--", rain: "--" },
+    { city: "Kohat",      lat: 33.5869, lon: 71.4414, max: "--", min: "--", rain: "--" },
+    { city: "Dir",        lat: 35.19,   lon: 71.87,   max: "--", min: "--", rain: "--" },
+    { city: "Mirkhani",   lat: 35.58,   lon: 71.72,   max: "--", min: "--", rain: "--" },
+    { city: "Balakot",    lat: 34.55,   lon: 73.35,   max: "--", min: "--", rain: "--" },
+    { city: "Chitral",    lat: 35.85,   lon: 71.78,   max: "--", min: "--", rain: "--" },
+    { city: "Drosh",      lat: 35.56,   lon: 71.79,   max: "--", min: "--", rain: "--" },
+    { city: "Pattan",     lat: 35.12,   lon: 73.01,   max: "--", min: "--", rain: "--" },
+    { city: "Kalam",      lat: 35.48,   lon: 72.58,   max: "--", min: "--", rain: "--" },
+    { city: "Malam Jabba",lat: 34.7997, lon: 72.5725, max: "--", min: "--", rain: "--" },
+    { city: "Parachinar", lat: 33.8992, lon: 70.1008, max: "--", min: "--", rain: "--" },
+    { city: "Kakul",      lat: 34.1833, lon: 73.2500, max: "--", min: "--", rain: "--" },
+
+    // Gilgit-Baltistan & AJK
+    { city: "Gilgit",       lat: 35.9208, lon: 74.3083, max: "--", min: "--", rain: "--" },
+    { city: "Skardu",       lat: 35.2971, lon: 75.6333, max: "--", min: "--", rain: "--" },
+    { city: "Muzaffarabad", lat: 34.3700, lon: 73.4714, max: "--", min: "--", rain: "--" },
+    { city: "Chilas",       lat: 35.42,   lon: 74.09,   max: "--", min: "--", rain: "--" },
+    { city: "Astore",       lat: 35.36,   lon: 74.85,   max: "--", min: "--", rain: "--" },
+    { city: "Gupis",        lat: 36.22,   lon: 73.44,   max: "--", min: "--", rain: "--" },
+    { city: "Bunji",        lat: 35.64,   lon: 74.63,   max: "--", min: "--", rain: "--" },
+    { city: "Garhi Dupatta",lat: 34.22,   lon: 73.61,   max: "--", min: "--", rain: "--" },
+    { city: "Rawalakot",    lat: 33.8576, lon: 73.7602, max: "--", min: "--", rain: "--" }
+  ],
+  
+
+
+
+
+   // --- 24 MARCH 2026 ---
   "24 March 2026": [
     // Punjab
     { city: "Lahore",          lat: 31.5204, lon: 74.3587, max: "--", min: "--", rain: "--" },
